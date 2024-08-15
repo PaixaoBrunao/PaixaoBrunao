@@ -2,7 +2,6 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    # Executa uma vez por dia
     - cron: "0 0 * * *"
   workflow_dispatch:
 
@@ -11,17 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Verifica o repositório
       - uses: actions/checkout@v3
 
-      # Configura o Git para fazer merge automático durante o pull
-      - name: Configure git
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
+      - name: Create dist directory
+        run: mkdir -p dist
 
-      # Gera o arquivo SVG da animação da cobra
-      - name: generate github-contribution-grid-snake.svg
+      - name: Generate snake animation
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -29,24 +23,23 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      # Cria um novo branch temporário
-      - name: Create temporary branch
+      - name: Configure git
         run: |
-          git checkout -b update-snake-animation
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
 
-      # Adiciona os arquivos gerados
+      - name: Create temporary branch
+        run: git checkout -b update-snake-animation
+
       - name: Add generated files
         run: git add dist/
 
-      # Commit dos arquivos gerados
       - name: Commit changes
-        run: git commit -m "Update snake animation"
+        run: git commit -m "Update snake animation" || echo "No changes to commit"
 
-      # Push para o branch temporário
       - name: Push changes
         run: git push origin update-snake-animation
 
-      # Cria um pull request automaticamente
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
