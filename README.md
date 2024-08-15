@@ -23,11 +23,3 @@
 </div>
 
 <br>
-
-### Animação de Contribuições
-
-### Animação de Contribuições
-
-![Snake animation](https://github.com/PaixaoBrunao/PaixaoBrunao/raw/main/output/dist/github-contribution-grid-snake.svg)
-
-
