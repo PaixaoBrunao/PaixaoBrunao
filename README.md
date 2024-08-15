@@ -26,5 +26,7 @@
 
 ### Animação de Contribuições
 
-![Snake animation](https://github.com/PaixaoBrunao/PaixaoBrunao/blob/output/dist/github-contribution-grid-snake.svg)
+### Animação de Contribuições
+
+![Snake animation](https://github.com/PaixaoBrunao/PaixaoBrunao/raw/output/dist/github-contribution-grid-snake.svg)
 
