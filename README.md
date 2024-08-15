@@ -22,4 +22,9 @@
   <a href="https://www.linkedin.com/in/bruno-paix%C3%A3o-094b04111/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> 
 </div>
 
-![Snake animation](https://github.com/PaixaoBrunao/PaixaoBrunao/blob/output/github-contribution-grid-snake.svg)
+### Animação de Cobra
+
+Abaixo está uma animação gerada automaticamente com base nas minhas contribuições no GitHub:
+
+![Snake animation](https://raw.githubusercontent.com/PaixaoBrunao/PaixaoBrunao/output/dist/github-contribution-grid-snake.svg)
+![Snake animation dark](https://raw.githubusercontent.com/PaixaoBrunao/PaixaoBrunao/output/dist/github-contribution-grid-snake-dark.svg?palette=github-dark)
