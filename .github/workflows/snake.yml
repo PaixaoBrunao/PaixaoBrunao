@@ -2,9 +2,7 @@ name: Generate Snake Animation
 
 on:
   schedule:
-    # Executa uma vez por dia
     - cron: "0 0 * * *"
-
   workflow_dispatch:
 
 jobs:
@@ -12,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Verifica o repositório
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+
+      # Puxe as últimas mudanças do branch principal
+      - name: Pull latest changes
+        run: git pull origin main
 
       # Gera o arquivo SVG da animação da cobra
       - name: generate github-contribution-grid-snake.svg
@@ -24,11 +25,15 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      # Adiciona os arquivos gerados de volta ao repositório
-      - name: Commit & Push
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: GitHub Action
-          author_email: action@github.com
-          message: "Generated snake animation"
-          add: "dist/*"
+      # Adiciona os arquivos gerados
+      - name: Add generated files
+        run: git add dist/
+
+      # Commit dos arquivos gerados
+      - name: Commit changes
+        run: git commit -m "Update snake animation"
+
+      # Push para o branch principal
+      - name: Push changes
+        run: git push origin main
+
