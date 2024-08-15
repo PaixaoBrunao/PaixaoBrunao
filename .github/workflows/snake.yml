@@ -19,11 +19,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git config pull.rebase false
-
-      # Atualiza o branch main local com as mudanças do remoto
-      - name: Pull latest changes
-        run: git pull origin main
 
       # Gera o arquivo SVG da animação da cobra
       - name: generate github-contribution-grid-snake.svg
@@ -34,6 +29,11 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
+      # Cria um novo branch temporário
+      - name: Create temporary branch
+        run: |
+          git checkout -b update-snake-animation
+
       # Adiciona os arquivos gerados
       - name: Add generated files
         run: git add dist/
@@ -42,8 +42,15 @@ jobs:
       - name: Commit changes
         run: git commit -m "Update snake animation"
 
-      # Push para o branch principal
+      # Push para o branch temporário
       - name: Push changes
-        run: |
-          git push origin main
+        run: git push origin update-snake-animation
 
+      # Cria um pull request automaticamente
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: update-snake-animation
+          title: "Update snake animation"
+          body: "Automated pull request to update snake animation."
+          base: main
