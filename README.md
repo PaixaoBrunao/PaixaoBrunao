@@ -20,15 +20,7 @@
   <a href="https://instagram.com/paixaobrunao" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white"></a>
   <a href="mailto:bruno-ap@outlook.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white"></a>
   <a href="https://www.linkedin.com/in/bruno-paix%C3%A3o-094b04111/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> 
-
- # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
-      - name: generate github-contribution-grid-snake.svg
-        uses: Platane/snk/PaixaoBrunao
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-
 </div>
 
+![Snake animation](https://github.com/PaixaoBrunao/PaixaoBrunao/blob/output/github-contribution-grid-snake.svg)
+![Snake animation dark](https://github.com/PaixaoBrunao/PaixaoBrunao/blob/output/github-contribution-grid-snake-dark.svg?palette=github-dark)
